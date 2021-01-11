@@ -314,30 +314,28 @@ PennController("PersonalData",
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////// Intro 2 html
-PennController("intro2",
+////////////////////////////////////////////////////////////////////////////////////////////////////////////// Hinweise html
+PennController("hinweise",
 
-               newHtml("intro2", "intro2.html")
-               .settings.log()
-               .print()
+             newHtml("hinweise", "Hinweise_html.html")
+             .print()
 
-               ,
+             ,
 
-               newCanvas("space", 1, 205)
-               .print()
+             newCanvas("space1", 1, 160)
+             .print()
 
-               ,
+             ,
 
-               newButton("weiter", "weiter")
-               .center()
-               .print()
-               .wait(getHtml("intro2").test.complete().failure( getHtml("intro2").warn()))
+             newButton("weiter", "weiter")
+             .center()
+             .print()
+             .wait()
+
 
     )
 
     .setOption("hideProgressBar", "true")
-    .log( "ID"            , getVar("ID"))
-
     ;
 
 
@@ -345,40 +343,26 @@ PennController("intro2",
 
 PennController("familiarization_start",
 
-               newText("familiarization_instr", "Zun&auml;chst zeigen wir dir alle Bilder, die sp&auml;ter in dem Experiment vorkommen. Unter jedem Bild wird der Begriff stehen, mit dem du das Bild sp&auml;ter benennen sollst (z.B. &quot;Auto&quot;, wenn das Bild ein Auto zeigt). Betrachte die Bilder deshalb bitte aufmerksam und versuche dir die dazugeh&ouml;rigen Begriffe zu merken!")
-               .settings.css("font-size", "large")
+                newHtml("intro", "familiarization_start.html")
+                .print()
 
-               ,
+                ,
 
-               newText("leertaste", "Sobald ein Bild verschwindet, kannst du dich mit der Leertaste zum n&auml;chsten Bild klicken." )
-               .settings.css("font-size", "large")
-               ,
+                newCanvas("space1", 1, 125)
+                .print()
 
-               newText("familiarization_start2", "Klicke <i>weiter</i>, um zu beginnen!")
-               .settings.css("font-size", "large")
+                ,
 
-               ,
-
-
-               newCanvas("text_fam", 800, 400)
-               .add(60,0, getText("familiarization_instr"))
-               .add(60, 80, getText("leertaste"))
-               .add(300, 180, getText("familiarization_start2"))
-               .print()
+                newButton("weiter", "weiter")
+                .center()
+                .print()
+                .wait()
 
 
-               ,
+)
 
-               newButton("weiter", "weiter")
-               .center()
-               .print()
-               .wait()
-
-    )
-
-    .setOption("hideProgressBar", "true")
-
-    ;
+.setOption("hideProgressBar", "true")
+;
 
 
 //////////////////////////////////////////////////////////////////////
@@ -450,38 +434,26 @@ PennController.Template("uebung.csv", variable =>
 
 PennController("practice_one_start",
 
-               newText("practice_one_instr", "Im folgenden Abschnitt wirst du die Bilder von eben noch einmal sehen. Dieses Mal sollst du die Bilder  so schnell wie m&ouml;glich benennen. Verwende dazu die Begriffe, die dir eben zusammen mit den Bildern gezeigt wurden! Zum Beispiel sagst du &quot;Rock&quot;, wenn das Bild einen Rock zeigt.")
+              newHtml("intro", "practice_one_start.html")
+              .print()
 
-               ,
+              ,
 
-               newText("leertaste", "Sobald die Aufnahme endet, kannst du dich mit der Leertaste zum n&auml;chsten Bild klicken." )
-               .settings.css("font-size", "large")
+              newCanvas("space1", 1, 125)
+              .print()
 
-               ,
+              ,
 
-               newText("practice_one2", "Klicke <i>weiter</i>, um zu beginnen!")
-
-               ,
-
-               newCanvas("empty", 800, 400)
-               .add(60,0, getText("practice_one_instr").settings.css("font-size", "large"))
-               .add(60, 80, getText("leertaste"))
-               .add(300, 180, getText("practice_one2").settings.css("font-size", "large"))
-               .print()
-
-               ,
-
-               newButton("weiter", "weiter")
-               .center()
-               .print()
-               .wait()
+              newButton("weiter", "weiter")
+              .center()
+              .print()
+              .wait()
 
 
-    )
+)
 
-    .setOption("hideProgressBar", "true")
-
-    ;
+.setOption("hideProgressBar", "true")
+;
 
 
 //////////////////////////////////////////////////////////////////////
@@ -580,7 +552,7 @@ PennController("practice_two_start",
                newCanvas("text", 800, 400)
                .add(60, 0, getText("practice_two_instr").settings.css("font-size", "large"))
                .add(60, 80, getText("leertaste"))
-               .add(300, 180, getText("practice_two2").settings.css("font-size", "large"))
+               .add(60, 180, getText("practice_two2").settings.css("font-size", "large"))
                .print()
 
                ,
@@ -727,7 +699,7 @@ PennController("main_start",
                .add(60, 90, newText("main_instr2", "Deine Aufgabe ist es, die Bilder so schnell wie m&ouml;glich zu benennen. Auch jetzt werden wieder auf einigen Bildern geschriebene W&ouml;rter erscheinen, die du bei der Benennung ignorieren sollst.").settings.css("font-size", "large"))
                .add(60, 140,newText("leertaste", "Sobald die Aufnahme endet, kannst du dich mit der Leertaste zum n&auml;chsten Bild klicken." )
                .settings.css("font-size", "large"))
-               .add(300, 180, newText("main2", "Klicke <i>weiter</i>, um zu beginnen!").settings.css("font-size", "large"))
+               .add(60, 180, newText("main2", "Klicke <i>weiter</i>, um zu beginnen!").settings.css("font-size", "large"))
                .print()
 
                ,
@@ -1021,12 +993,12 @@ PennController.Template("rand3.csv", variable =>
                newCanvas("Canvas", 300, 400)
                .print()
 
-         /*      ,
+        /*       ,
 
                newTimer("Intertrial", 1500)
                .start()
                .wait()
-        */
+         */
                ,
 
                getCanvas("Canvas")
@@ -1046,19 +1018,19 @@ PennController.Template("rand3.csv", variable =>
 
                ,
 
+               getCanvas("Canvas")
+               .remove()
+
+               ,
+
                newTimer("ShowBlank", 500)
                .start()
                .wait()
 
                ,
 
-               getCanvas("Canvas")
-               .remove()
-
-               ,
-
                newText("Unr_Distractor" , variable.Unr_Distractor)
-             //  .settings.bold()
+              // .settings.bold()
 
                ,
 
@@ -1068,8 +1040,14 @@ PennController.Template("rand3.csv", variable =>
                ,
 
                newCanvas("Canvas2", 300, 400)
-               .add(0, 0, getImage("Picture"))
+               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
                .print()
+
+               ,
+
+               newTimer("ShowPic", 100)
+               .start()
+               .wait()
 
                ,
 
@@ -1078,19 +1056,14 @@ PennController.Template("rand3.csv", variable =>
 
                ,
 
-               newTimer("ShowPic", 200)
-               .start()
-               .wait()
-
-               ,
-
                getCanvas("Canvas2")
-               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
+               .add(0, 0, getImage("Picture"))
+               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
 
-               newTimer("DeletePic", 800)
+               newTimer("recording", 900)
                .start()
                .wait()
 
@@ -1101,7 +1074,7 @@ PennController.Template("rand3.csv", variable =>
 
                ,
 
-               newTimer("recording", 1000)
+               newTimer("DeletePic", 1000)
                .start()
                .wait()
 
@@ -1109,6 +1082,7 @@ PennController.Template("rand3.csv", variable =>
 
                getVoiceRecorder("recorder")
                .stop()
+
 
                ,
 
@@ -1124,7 +1098,8 @@ PennController.Template("rand3.csv", variable =>
               .settings.keys(     " "                   )
               .wait()
 
-               /*
+
+              /*
 
                newButton("weiter", "weiter")
                .center()
