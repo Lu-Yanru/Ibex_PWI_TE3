@@ -5,13 +5,14 @@ PennController.DebugOff()
 
 
 
-PennController.Sequence("init", "intro", "PersonalData", "intro2", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms", "break","main_SOA-100ms", "break","main_SOA0ms",  "send", "end" ) //order of main blocks can be changed here
+PennController.Sequence("init", "intro", "PersonalData", "intro2", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms", "break", "main_SOA200ms", "break","main_SOA-100ms", "break","main_SOA0ms",  "send", "end" ) //order of main blocks can be changed here
 //         "intro", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start",
 
 //CheckPreloaded(startsWith("Picture"))
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////// Intro
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Introduction HTML
+
 
 PennController("intro",
 
@@ -37,7 +38,8 @@ PennController("intro",
     ;
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// PersonalData
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Clickworker ID
+
 
 PennController("PersonalData",
 
@@ -310,33 +312,6 @@ PennController("PersonalData",
 
     ;
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////// Intro html
-PennController("intro",
-
-               newHtml("intro", "example_intro.html")
-               .settings.log()
-               .print()
-
-               ,
-
-               newCanvas("space", 1, 20)
-               .print()
-
-               ,
-
-
-               newButton("weiter", "weiter")
-               .center()
-               .print()
-               .wait(getHtml("intro").test.complete().failure( getHtml("intro").warn()))
-
-    )
-
-    .setOption("hideProgressBar", "true")
-    .log( "ID"            , getVar("ID"))
-
-    ;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////// Intro 2 html
@@ -1040,7 +1015,7 @@ PennController.Template("rand2.csv", variable =>
 
 PennController.Template("rand3.csv", variable =>
 
-               PennController("main_SOA-100ms",
+               PennController("main_SOA200ms",
 
 
                newCanvas("Canvas", 300, 400)
@@ -1170,6 +1145,143 @@ PennController.Template("rand3.csv", variable =>
     )
     ;
 
+
+//////////////////////////////////////////////////////////////////////
+
+PennController.Template("rand4.csv", variable =>
+
+               PennController("main_SOA-100ms",
+
+
+               newCanvas("Canvas", 300, 400)
+               .print()
+
+        /*       ,
+
+               newTimer("Intertrial", 1500)
+               .start()
+               .wait()
+         */
+               ,
+
+               getCanvas("Canvas")
+               .add(150, 150, newText("fixation", "+").settings.bold().settings.css("font-size", "xx-large"))
+               .print()
+
+               ,
+
+               newTimer("ShowFixation", 1000)
+               .start()
+               .wait()
+
+               ,
+
+               getText("fixation")
+               .remove()
+
+               ,
+
+               getCanvas("Canvas")
+               .remove()
+
+               ,
+
+               newTimer("ShowBlank", 500)
+               .start()
+               .wait()
+
+               ,
+
+               newText("Unr_Distractor" , variable.Unr_Distractor)
+              // .settings.bold()
+
+               ,
+
+               newImage("Picture", variable.Pic)
+               .size(300, 300)
+
+               ,
+
+               newCanvas("Canvas2", 300, 400)
+               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
+               .print()
+
+               ,
+
+               newTimer("ShowPic", 100)
+               .start()
+               .wait()
+
+               ,
+
+               newVoiceRecorder("recorder")
+               .record()
+
+               ,
+
+               getCanvas("Canvas2")
+               .add(0, 0, getImage("Picture"))
+               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .print()
+
+               ,
+
+               newTimer("recording", 900)
+               .start()
+               .wait()
+
+               ,
+
+               getCanvas("Canvas2")
+               .hidden()
+
+               ,
+
+               newTimer("DeletePic", 1000)
+               .start()
+               .wait()
+
+               ,
+
+               getVoiceRecorder("recorder")
+               .stop()
+
+
+               ,
+
+              newButton("weiter", "weiter")
+              .center()
+             // .print()
+
+              ,
+
+              newSelector("button")
+             // .disableClicks()
+              .add(getButton("weiter") )
+              .settings.keys(     " "                   )
+              .wait()
+
+
+              /*
+
+               newButton("weiter", "weiter")
+               .center()
+               .print()
+               .wait()
+   */
+
+    )
+
+    .setOption("hideProgressBar", "true")
+
+    .log( "Picture"       , variable.Pic )
+    .log( "Word"          , variable.Word )
+    .log( "Cond"          , variable.Cond )
+    .log( "ID"            , getVar("ID"))
+    .log("Distractor", variable.Unr_Distractor)
+
+    )
+    ;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////// Breaks
