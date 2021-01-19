@@ -1,11 +1,11 @@
 PennController.ResetPrefix( null );
-AddHost("https://amor.cms.hu-berlin.de/~idslfahm/ibex_bilder/");
+AddHost("https://amor.cms.hu-berlin.de/~idslfahm/ibex_bilder/PWI_BB/");
 PennController.InitiateRecorder( "https://amor.cms.hu-berlin.de/~idslfahm/recordings/Recording.php").label( "init" );
 PennController.DebugOff()
 
 
 
-PennController.Sequence("init", "intro", "PersonalData", "intro2", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms", "break", "main_SOA-100ms", "break","main_SOA0ms",  "send", "end" ) //order of main blocks can be changed here
+PennController.Sequence("init", "intro", "PersonalData", "intro2", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms1", "break", "main_SOA100ms2", "break","main_SOA-100ms1", "break","main_SOA-100ms2", "break","main_SOA0ms1","break","main_SOA0ms1",  "send", "end" ) //order of main blocks can be changed here
 //         "intro", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start",
 
 //CheckPreloaded(startsWith("Picture"))
@@ -379,7 +379,7 @@ PennController.Template("uebung.csv", variable =>
 
               newCanvas("PicWord", 300, 400)
               .add(0, 0, getImage("Picture"))
-              .add(100, 350, newText("Wort", variable.Word).settings.css("font-size", "40px").settings.css("font-family", "Times New Roman") )
+              .add(100, 350, newText("Item", variable.Item).settings.css("font-size", "40px").settings.css("font-family", "Times New Roman") )
               .print()
 
               ,
@@ -423,10 +423,10 @@ PennController.Template("uebung.csv", variable =>
     .setOption("hideProgressBar", "true")
 
     .log( "Picture"       , variable.Pic )
-    .log( "Word"          , variable.Word )
-    .log( "Cond"          , variable.Cond )
+    .log( "Item"          , variable.Item )
+    .log( "Condition"          , variable.Condition )
     .log( "ID"            , getVar("ID"))
-    .log("Distractor", variable.Unr_Distractor)
+    .log("Distractor", variable.Distractor)
     );
 
 
@@ -524,10 +524,10 @@ PennController.Template("uebung.csv", variable =>
     .setOption("hideProgressBar", "true")
 
     .log( "Picture"       , variable.Pic )
-    .log( "Word"          , variable.Word )
-    .log( "Cond"          , variable.Cond )
+    .log( "Item"          , variable.Item )
+    .log( "Condition"          , variable.Condition )
     .log( "ID"            , getVar("ID"))
-    .log("Distractor", variable.Unr_Distractor)
+    .log("Distractor", variable.Distractor)
 
     );
 
@@ -581,7 +581,7 @@ PennController.Template("uebung2.csv", variable =>
 
                ,
 
-               newText("Distractor",variable.Unr_Distractor)
+               newText("Distractor",variable.Distractor)
 
                ,
 
@@ -682,10 +682,10 @@ PennController.Template("uebung2.csv", variable =>
     .setOption("hideProgressBar", "true")
 
     .log( "Picture"       , variable.Pic )
-    .log( "Word"          , variable.Word )
-    .log( "Cond"          , variable.Cond )
+    .log( "Item"          , variable.Item )
+    .log( "Condition"          , variable.Condition )
     .log( "ID"            , getVar("ID"))
-    .log("Distractor", variable.Unr_Distractor)
+    .log("Distractor", variable.Distractor)
 
     );
 
@@ -694,20 +694,20 @@ PennController.Template("uebung2.csv", variable =>
 
 PennController("main_start",
 
-               newCanvas("text", 800, 400)
-               .add(230, 0, newText("main_instr", "<b>Jetzt folgt das richtige Experiment.</b>").settings.css("font-size", "x-large").settings.bold())
-               .add(60, 90, newText("main_instr2", "Deine Aufgabe ist es, die Bilder so schnell wie m&ouml;glich zu benennen. Auch jetzt werden wieder auf einigen Bildern geschriebene W&ouml;rter erscheinen, die du bei der Benennung ignorieren sollst.").settings.css("font-size", "large"))
-               .add(60, 140,newText("leertaste", "Sobald die Aufnahme endet, kannst du dich mit der Leertaste zum n&auml;chsten Bild klicken." )
-               .settings.css("font-size", "large"))
-               .add(60, 180, newText("main2", "Klicke <i>weiter</i>, um zu beginnen!").settings.css("font-size", "large"))
-               .print()
+      newHtml("main_start", "main_start.html")
+      .print()
 
-               ,
+      ,
 
-               newButton("weiter", "weiter")
-               .center()
-               .print()
-               .wait()
+      newCanvas("space1", 1, 125)
+      .print()
+
+      ,
+
+      newButton("weiter", "weiter")
+      .center()
+      .print()
+      .wait()
 
     )
 
@@ -718,9 +718,9 @@ PennController("main_start",
 
 //////////////////////////////////////////////////////////////////////
 
-PennController.Template("rand1.csv", variable =>
+PennController.Template("rand1-1.csv", variable =>
 
-               PennController("main_SOA0ms",
+               PennController("main_SOA0ms1",
 
 
 
@@ -765,7 +765,7 @@ PennController.Template("rand1.csv", variable =>
 
                ,
 
-               newText("Unr_Distractor" , variable.Unr_Distractor)
+               newText("Distractor" , variable.Distractor)
           //     .settings.bold()
 
                ,
@@ -782,7 +782,7 @@ PennController.Template("rand1.csv", variable =>
 
                newCanvas("Canvas2", 300, 400)
                .add(0, 0, getImage("Picture"))
-               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
@@ -836,21 +836,155 @@ PennController.Template("rand1.csv", variable =>
     .setOption("hideProgressBar", "true")
 
     .log( "Picture"       , variable.Pic )
-    .log( "Word"          , variable.Word )
-    .log( "Cond"          , variable.Cond )
+    .log( "Item"          , variable.Item )
+    .log( "Condition"          , variable.Condition )
     .log( "ID"            , getVar("ID"))
-    .log("Distractor", variable.Unr_Distractor)
+    .log("Distractor", variable.Distractor)
 
 
     )
     ;
 
 
+
+
+    //////////////////////////////////////////////////////////////////////
+
+    PennController.Template("rand1-2.csv", variable =>
+
+                   PennController("main_SOA0ms2",
+
+
+
+                   newCanvas("Canvas", 300, 400)
+                   .print()
+
+             /*      ,
+
+                   newTimer("Intertrial", 1500)
+                   .start()
+                   .wait()
+                 */
+                   ,
+
+                   getCanvas("Canvas")
+                   .add(150, 150, newText("fixation", "+").settings.bold().settings.css("font-size", "xx-large"))
+                   .print()
+
+                   ,
+
+                   newTimer("ShowFixation", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getText("fixation")
+                   .remove()
+
+                   ,
+
+                   newTimer("ShowBlank", 500)
+                   .start()
+                   .wait()
+
+                   ,
+
+
+                   getCanvas("Canvas")
+                   .remove()
+
+
+                   ,
+
+                   newText("Distractor" , variable.Distractor)
+              //     .settings.bold()
+
+                   ,
+
+                   newImage("Picture", variable.Pic)
+                   .size(300, 300)
+
+                   ,
+
+                   newVoiceRecorder("recorder")
+                   .record()
+
+                   ,
+
+                   newCanvas("Canvas2", 300, 400)
+                   .add(0, 0, getImage("Picture"))
+                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+                   .print()
+
+                   ,
+
+                   newTimer("PicWord", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getCanvas("Canvas2")
+                   .hidden()
+
+                   ,
+
+                   newTimer("recording", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getVoiceRecorder("recorder")
+                   .stop()
+
+
+                   ,
+
+
+                  newButton("weiter", "weiter")
+                  .center()
+                 // .print()
+
+                  ,
+
+                  newSelector("button")
+                 // .disableClicks()
+                  .add(getButton("weiter") )
+                  .settings.keys(     " "                   )
+                  .wait()
+
+                 /*
+
+                   newButton("weiter", "weiter")
+                   .center()
+                   .print()
+                   .wait()
+       */
+
+        )
+
+        .setOption("hideProgressBar", "true")
+
+        .log( "Picture"       , variable.Pic )
+        .log( "Item"          , variable.Item )
+        .log( "Condition"          , variable.Condition )
+        .log( "ID"            , getVar("ID"))
+        .log("Distractor", variable.Distractor)
+
+
+        )
+        ;
+
+
+
+
 //////////////////////////////////////////////////////////////////////
 
-PennController.Template("rand2.csv", variable =>
+PennController.Template("rand2-1.csv", variable =>
 
-               PennController("main_SOA100ms",
+               PennController("main_SOA100ms1",
 
 
                newCanvas("Canvas", 300, 400)
@@ -892,7 +1026,7 @@ PennController.Template("rand2.csv", variable =>
 
                ,
 
-               newText("Unr_Distractor" , variable.Unr_Distractor)
+               newText("Distractor" , variable.Distractor)
               // .settings.bold()
 
                ,
@@ -920,7 +1054,7 @@ PennController.Template("rand2.csv", variable =>
                ,
 
                getCanvas("Canvas2")
-               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
@@ -974,20 +1108,158 @@ PennController.Template("rand2.csv", variable =>
     .setOption("hideProgressBar", "true")
 
     .log( "Picture"       , variable.Pic )
-    .log( "Word"          , variable.Word )
-    .log( "Cond"          , variable.Cond )
+    .log( "Item"          , variable.Item )
+    .log( "Condition"          , variable.Condition )
     .log( "ID"            , getVar("ID"))
-    .log("Distractor", variable.Unr_Distractor)
+    .log("Distractor", variable.Distractor)
 
     )
     ;
 
 
+
+    //////////////////////////////////////////////////////////////////////
+
+    PennController.Template("rand2-2.csv", variable =>
+
+                   PennController("main_SOA100ms2",
+
+
+                   newCanvas("Canvas", 300, 400)
+                   .print()
+
+               /*    ,
+
+                   newTimer("Intertrial", 1500)
+                   .start()
+                   .wait()
+                */
+                   ,
+
+                   getCanvas("Canvas")
+                   .add(150, 150, newText("fixation", "+").settings.bold().settings.css("font-size", "xx-large"))
+                   .print()
+
+                   ,
+
+                   newTimer("ShowFixation", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getText("fixation")
+                   .remove()
+
+                   ,
+
+                   newTimer("ShowBlank", 500)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getCanvas("Canvas")
+                   .remove()
+
+                   ,
+
+                   newText("Distractor" , variable.Distractor)
+                  // .settings.bold()
+
+                   ,
+
+                   newImage("Picture", variable.Pic)
+                   .size(300, 300)
+
+                   ,
+
+                   newCanvas("Canvas2", 300, 400)
+                   .add(0, 0, getImage("Picture"))
+                   .print()
+
+                   ,
+
+                   newVoiceRecorder("recorder")
+                   .record()
+
+                   ,
+
+                   newTimer("ShowPic", 100)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getCanvas("Canvas2")
+                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+                   .print()
+
+                   ,
+
+                   newTimer("recording", 900)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getCanvas("Canvas2")
+                   .hidden()
+
+                   ,
+
+                   newTimer("DeletePic", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getVoiceRecorder("recorder")
+                   .stop()
+
+                   ,
+
+
+                  newButton("weiter", "weiter")
+                  .center()
+                 // .print()
+
+                  ,
+
+                  newSelector("button")
+                 // .disableClicks()
+                  .add(getButton("weiter") )
+                  .settings.keys(     " "                   )
+                  .wait()
+
+
+                   /*
+
+                   newButton("weiter", "weiter")
+                   .center()
+                   .print()
+                   .wait()
+       */
+
+        )
+
+        .setOption("hideProgressBar", "true")
+
+        .log( "Picture"       , variable.Pic )
+        .log( "Item"          , variable.Item )
+        .log( "Condition"          , variable.Condition )
+        .log( "ID"            , getVar("ID"))
+        .log("Distractor", variable.Distractor)
+
+        )
+        ;
+
+
 //////////////////////////////////////////////////////////////////////
 
-PennController.Template("rand3.csv", variable =>
+PennController.Template("rand3-1.csv", variable =>
 
-               PennController("main_SOA-100ms",
+               PennController("main_SOA-100ms1",
 
 
                newCanvas("Canvas", 300, 400)
@@ -1029,7 +1301,7 @@ PennController.Template("rand3.csv", variable =>
 
                ,
 
-               newText("Unr_Distractor" , variable.Unr_Distractor)
+               newText("Distractor" , variable.Distractor)
               // .settings.bold()
 
                ,
@@ -1040,7 +1312,7 @@ PennController.Template("rand3.csv", variable =>
                ,
 
                newCanvas("Canvas2", 300, 400)
-               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
+               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
                .print()
 
                ,
@@ -1058,7 +1330,7 @@ PennController.Template("rand3.csv", variable =>
 
                getCanvas("Canvas2")
                .add(0, 0, getImage("Picture"))
-               .add(100, 150, getText("Unr_Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
@@ -1112,13 +1384,152 @@ PennController.Template("rand3.csv", variable =>
     .setOption("hideProgressBar", "true")
 
     .log( "Picture"       , variable.Pic )
-    .log( "Word"          , variable.Word )
-    .log( "Cond"          , variable.Cond )
+    .log( "Item"          , variable.Item )
+    .log( "Condition"          , variable.Condition )
     .log( "ID"            , getVar("ID"))
-    .log("Distractor", variable.Unr_Distractor)
+    .log("Distractor", variable.Distractor)
 
     )
     ;
+
+
+
+//////////////////////////////////////////////////////////////////////
+
+PennController.Template("rand3-2.csv", variable =>
+
+                   PennController("main_SOA-100ms2",
+
+
+                   newCanvas("Canvas", 300, 400)
+                   .print()
+
+            /*       ,
+
+                   newTimer("Intertrial", 1500)
+                   .start()
+                   .wait()
+             */
+                   ,
+
+                   getCanvas("Canvas")
+                   .add(150, 150, newText("fixation", "+").settings.bold().settings.css("font-size", "xx-large"))
+                   .print()
+
+                   ,
+
+                   newTimer("ShowFixation", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getText("fixation")
+                   .remove()
+
+                   ,
+
+                   getCanvas("Canvas")
+                   .remove()
+
+                   ,
+
+                   newTimer("ShowBlank", 500)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   newText("Distractor" , variable.Distractor)
+                  // .settings.bold()
+
+                   ,
+
+                   newImage("Picture", variable.Pic)
+                   .size(300, 300)
+
+                   ,
+
+                   newCanvas("Canvas2", 300, 400)
+                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
+                   .print()
+
+                   ,
+
+                   newTimer("ShowPic", 100)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   newVoiceRecorder("recorder")
+                   .record()
+
+                   ,
+
+                   getCanvas("Canvas2")
+                   .add(0, 0, getImage("Picture"))
+                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+                   .print()
+
+                   ,
+
+                   newTimer("recording", 900)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getCanvas("Canvas2")
+                   .hidden()
+
+                   ,
+
+                   newTimer("DeletePic", 1000)
+                   .start()
+                   .wait()
+
+                   ,
+
+                   getVoiceRecorder("recorder")
+                   .stop()
+
+
+                   ,
+
+                  newButton("weiter", "weiter")
+                  .center()
+                 // .print()
+
+                  ,
+
+                  newSelector("button")
+                 // .disableClicks()
+                  .add(getButton("weiter") )
+                  .settings.keys(     " "                   )
+                  .wait()
+
+
+                  /*
+
+                   newButton("weiter", "weiter")
+                   .center()
+                   .print()
+                   .wait()
+       */
+
+        )
+
+        .setOption("hideProgressBar", "true")
+
+        .log( "Picture"       , variable.Pic )
+        .log( "Item"          , variable.Item )
+        .log( "Condition"          , variable.Condition )
+        .log( "ID"            , getVar("ID"))
+        .log("Distractor", variable.Distractor)
+
+        )
+        ;
 
 
 
