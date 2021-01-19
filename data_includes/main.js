@@ -366,7 +366,7 @@ PennController("familiarization_start",
 
 
 //////////////////////////////////////////////////////////////////////
-
+// 2 min
 PennController.Template("uebung.csv", variable =>
 
               PennController("familiarization",
@@ -457,7 +457,7 @@ PennController("practice_one_start",
 
 
 //////////////////////////////////////////////////////////////////////
-
+//2 min
 
 PennController.Template("uebung.csv", variable =>
 
@@ -570,7 +570,7 @@ PennController("practice_two_start",
 
 
 //////////////////////////////////////////////////////////////////////
-
+// 1.5 min
 PennController.Template("uebung2.csv", variable =>
 
                PennController("practice_two",
@@ -717,7 +717,7 @@ PennController("main_start",
 
 
 //////////////////////////////////////////////////////////////////////
-
+// > 3 min
 PennController.Template("rand1-1.csv", variable =>
 
                PennController("main_SOA0ms1",
