@@ -367,7 +367,7 @@ PennController("familiarization_start",
 
 //////////////////////////////////////////////////////////////////////
 // 2 min
-PennController.Template("uebung.csv", variable =>
+PennController.Template("fam.csv", variable =>
 
               PennController("familiarization",
 
