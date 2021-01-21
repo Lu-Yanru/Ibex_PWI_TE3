@@ -536,7 +536,7 @@ PennController.Template("uebung.csv", variable =>
 
 PennController("practice_two_start",
 
-               newText("practice_two_instr", "In diesem letzten &Uuml;bungsabschnitt siehst du einige Bilder noch einmal. Deine Aufgabe ist es wieder, die Bilder so schnell wie m&ouml;glich zu benennen. Zus&auml;tzlich zu den Bildern erscheinen auch geschriebene Worte auf dem Bildschirm. Bitte ignoriere diese bei der Benennung!")
+               newText("practice_two_instr", "In diesem letzten &Uuml;bungsabschnitt siehst du auch wieder einige der Bilder. Deine Aufgabe ist es wieder, die Bilder so schnell wie m&ouml;glich zu benennen. Zus&auml;tzlich zu den Bildern erscheinen auch geschriebene Worte auf dem Bildschirm. Bitte ignoriere diese bei der Benennung!")
 
                ,
 
