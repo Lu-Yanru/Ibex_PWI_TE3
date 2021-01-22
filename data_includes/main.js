@@ -5,7 +5,7 @@ PennController.DebugOff()
 
 
 
-PennController.Sequence("init", "intro", "PersonalData", "hinweise", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms1", "break", "main_SOA100ms2", "break","main_SOA-100ms1", "break","main_SOA-100ms2", "break","main_SOA0ms1","break","main_SOA0ms1",  "send", "end" ) //order of main blocks can be changed here
+PennController.Sequence("init", "intro", "PersonalData", "hinweise", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms1", "break", "main_SOA100ms2", "break","main_SOA-100ms1", "break","main_SOA-100ms2", "break","main_SOA0ms1","break","main_SOA0ms2",  "send", "end" ) //order of main blocks can be changed here
 //         "intro", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start",
 
 //CheckPreloaded(startsWith("Picture"))
