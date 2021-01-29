@@ -6,7 +6,8 @@ PennController.DebugOff()
 
 
 PennController.Sequence("init", "intro", "PersonalData", "hinweise", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA100ms1", "break", "main_SOA100ms2", "break","main_SOA-100ms1", "break","main_SOA-100ms2", "break","main_SOA0ms1","break","main_SOA0ms2",  "send", "end" ) //order of main blocks can be changed here
-//         "intro", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start",
+// PennController.Sequence("init", "intro", "PersonalData", "hinweise", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA-100ms1", "break", "main_SOA-100ms2", "break","main_SOA0ms1", "break","main_SOA0ms2", "break","main_SOA100ms1","break","main_SOA100ms2",  "send", "end" )
+// PennController.Sequence("init", "intro", "PersonalData", "hinweise", "familiarization_start", "familiarization", "practice_one_start", randomize("practice_one"), "practice_two_start", randomize("practice_two"), "main_start",  "main_SOA0ms1", "break", "main_SOA0ms2", "break","main_SOA100ms1", "break","main_SOA100ms2", "break","main_SOA-100ms1","break","main_SOA-100ms2",  "send", "end" )
 
 //CheckPreloaded(startsWith("Picture"))
 
@@ -626,7 +627,7 @@ PennController.Template("uebung2.csv", variable =>
 
                newCanvas("Canvas2", 300, 400)
                .add(0, 0, getImage("Picture"))
-               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman") )
+               .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman") )
                .print()
 
                ,
@@ -782,7 +783,7 @@ PennController.Template("rand1-1.csv", variable =>
 
                newCanvas("Canvas2", 300, 400)
                .add(0, 0, getImage("Picture"))
-               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
@@ -914,7 +915,7 @@ PennController.Template("rand1-1.csv", variable =>
 
                    newCanvas("Canvas2", 300, 400)
                    .add(0, 0, getImage("Picture"))
-                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+                   .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                    .print()
 
                    ,
@@ -1054,7 +1055,7 @@ PennController.Template("rand2-1.csv", variable =>
                ,
 
                getCanvas("Canvas2")
-               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
@@ -1192,7 +1193,7 @@ PennController.Template("rand2-1.csv", variable =>
                    ,
 
                    getCanvas("Canvas2")
-                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+                   .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                    .print()
 
                    ,
@@ -1312,7 +1313,7 @@ PennController.Template("rand3-1.csv", variable =>
                ,
 
                newCanvas("Canvas2", 300, 400)
-               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
+               .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
                .print()
 
                ,
@@ -1330,7 +1331,7 @@ PennController.Template("rand3-1.csv", variable =>
 
                getCanvas("Canvas2")
                .add(0, 0, getImage("Picture"))
-               .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+               .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                .print()
 
                ,
@@ -1451,7 +1452,7 @@ PennController.Template("rand3-2.csv", variable =>
                    ,
 
                    newCanvas("Canvas2", 300, 400)
-                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
+                   .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman")  )
                    .print()
 
                    ,
@@ -1469,7 +1470,7 @@ PennController.Template("rand3-2.csv", variable =>
 
                    getCanvas("Canvas2")
                    .add(0, 0, getImage("Picture"))
-                   .add(100, 150, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
+                   .add(110, 120, getText("Distractor").settings.css("font-size", "40px").settings.css("font-family", "Times New Roman"))
                    .print()
 
                    ,
@@ -1585,7 +1586,7 @@ PennController.SendResults("send");
               newCanvas("text", 800, 400)
               .add(250, 0, newText("thank", "<p>Vielen Dank f&uuml;r deine Teilnahme!</p>").settings.css("font-size", "x-large").settings.bold())
               .add(80, 120, newText("Code",  "Wichtiger Hinweis:  <br /> Bitte kopiere den folgenden Code und f&uuml;ge ihn in das daf&uuml;r vorgesehene Feld innerhalb deines Clickworker-Aufgabenformulars ein. <br /> Ohne die Eingabe dieses Codes kann eine Gutschrift deines Honorars nicht erfolgen!").settings.css("font-size", "large"))
-              .add(80, 220, newText("Code2", "<b> Code: PWIBBP </b>").settings.css("font-size", "large"))
+              .add(80, 220, newText("Code2", "<b> Code: PWIBB3 </b>").settings.css("font-size", "large"))
               .print()
 
 

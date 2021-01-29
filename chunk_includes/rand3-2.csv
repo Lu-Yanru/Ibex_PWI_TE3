@@ -10,7 +10,7 @@ Klavier_schwarz.png,Klavier,Palme,unrel
 Zahn_weiss.png,Zahn,Lippe,rel
 Nest_braun.png,Nest,Mond,unrel
 Klee_gruen.png,Klee,Gras,rel
-Fliege_schwarz.png,Fliege,Boot,unrel
+Fliege_schwarz_neu.png,Fliege,Boot,unrel
 Erbse_gruen.png,Erbse,Möhre,rel
 Koffer_schwarz.png,Koffer,Tasche,rel
 Anzug_schwarz.png,Anzug,Bonbon,unrel
@@ -26,7 +26,7 @@ Blut_rot.png,Blut,Pflaume,unrel
 Schaf_weiss.png,Schaf,Kuh,rel
 Nuss_braun.png,Nuss,Honig,rel
 Kittel_weiss.png,Kittel,Vampir,unrel
-Reifen_schwarz.png,Reifen,Bremse,rel
+Reifen_schwarz_neu.png,Reifen,Bremse,rel
 Gespenst_weiss.png,Gespenst,Mais,unrel
 Iglu_weiss.png,Iglu,Zelt,rel
 Tomate_rot.png,Tomate,Gurke,rel
@@ -35,7 +35,7 @@ Kirsche_rot.png,Kirsche,Stuhl,unrel
 Brief_weiss.png,Brief,Paket,rel
 Hummer_rot.png,Hummer,Lunge,unrel
 Muenze_gold.png,Münze,Kasse,rel
-Lakritz_schwarz.png,Lakritz,Bonbon,rel
+Lakritz_schwarz_neu.png,Lakritz,Bonbon,rel
 Monster_gruen.png,Monster,Vampir,rel
 Zahn_weiss.png,Zahn,Uhr,unrel
 Schiff_braun.png,Schiff,Höhle,unrel
