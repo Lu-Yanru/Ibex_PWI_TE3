@@ -4,13 +4,13 @@ Tisch_braun.png,Tisch,Auto,filler
 Kaktus_gruen.png,Kaktus,Nase,unrel
 Pferd_braun.png,Pferd,Zelt,unrel
 Monster_gruen.png,Monster,Vampir,rel
-Reifen_schwarz_neu.png,Reifen,Träne,unrel
+Reifen_schwarz.png,Reifen,Nerv,unrel
 Stern_gold.png,Stern,Mond,rel
 Klavier_schwarz.png,Klavier,Orgel,rel
 Salat_gruen.png,Salat,Mais,rel
 Traktor_gruen.png,Traktor,Kasse,unrel
 Mund_rot.png,Mund,Esel,unrel
-Kittel_weiss.png,Kittel,Schürze,rel
+Kittel_weiss.png,Kittel,Hose,rel
 Brief_weiss.png,Brief,Paket,rel
 Raupe_gruen.png,Raupe,Zepter,unrel
 Kirsche_rot.png,Kirsche,Stuhl,unrel
@@ -19,7 +19,7 @@ Tomate_rot.png,Tomate,Gurke,rel
 Holz_braun.png,Holz,Lippe,unrel
 Kette_gold.png,Kette,Uhr,rel
 Gespenst_weiss.png,Gespenst,Hexe,rel
-Fliege_schwarz_neu.png,Fliege,Boot,unrel
+Fliege_schwarz.png,Fliege,Boot,unrel
 Klee_gruen.png,Klee,Armband,unrel
 Zahn_weiss.png,Zahn,Lippe,rel
 Pferd_braun.png,Pferd,Esel,rel
@@ -28,7 +28,7 @@ Iglu_weiss.png,Iglu,Honig,unrel
 Trompete_gold.png,Trompete,Gitarre,rel
 Hummer_rot.png,Hummer,Lunge,unrel
 Kittel_weiss.png,Kittel,Vampir,unrel
-Lakritz_schwarz_neu.png,Lakritz,Mücke,unrel
+Lakritz_schwarz.png,Lakritz,Mücke,unrel
 Schiff_braun.png,Schiff,Boot,rel
 Nest_braun.png,Nest,Höhle,rel
 Tulpe_rot.png,Tulpe,Fisch,unrel
@@ -40,6 +40,6 @@ Krone_gold.png,Krone,Bagger,unrel
 Monster_gruen.png,Monster,Gitarre,unrel
 Teller_weiss.png,Teller,Schale,rel
 Blut_rot.png,Blut,Pflaume,unrel
-Geige_braun.png,Geige,Schürze,unrel
+Geige_braun.png,Geige,Hose,unrel
 Pokal_gold.png,Pokal,Bremse,unrel
 Schaf_weiss.png,Schaf,Kuh,rel
