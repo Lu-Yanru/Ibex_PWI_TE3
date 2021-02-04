@@ -1,6 +1,6 @@
 Pic,Item,Distractor,Condition
 Kirsche_rot.png,Kirsche,Bett,filler
-Fliege_schwarz.png,Fliege,Papier,filler
+Fliege_schwarz_neu.png,Fliege,Papier,filler
 Nest_braun.png,Nest,Höhle,rel
 Iglu_weiss.png,Iglu,Zelt,rel
 Kette_gold.png,Kette,Möhre,unrel
@@ -27,7 +27,7 @@ Kittel_weiss.png,Kittel,Vampir,unrel
 Tulpe_rot.png,Tulpe,Fisch,unrel
 Holz_braun.png,Holz,Stein,rel
 Traktor_gruen.png,Traktor,Kasse,unrel
-Lakritz_schwarz.png,Lakritz,Praline,rel
+Lakritz_schwarz_neu.png,Lakritz,Praline,rel
 Zahn_weiss.png,Zahn,Uhr,unrel
 Tisch_braun.png,Tisch,Gras,unrel
 Erbse_gruen.png,Erbse,Möhre,rel
@@ -35,7 +35,7 @@ Gespenst_weiss.png,Gespenst,Hexe,rel
 Nuss_braun.png,Nuss,Orgel,unrel
 Krone_gold.png,Krone,Zepter,rel
 Herz_rot.png,Herz,Lunge,rel
-Fliege_schwarz.png,Fliege,Mücke,rel
+Fliege_schwarz_neu.png,Fliege,Mücke,rel
 Geige_braun.png,Geige,Hose,unrel
 Pokal_gold.png,Pokal,Bremse,unrel
 Hummer_rot.png,Hummer,Fisch,rel
